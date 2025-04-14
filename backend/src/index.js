@@ -22,13 +22,17 @@ const logger = winston.createLogger({
 });
 
 // Middleware
+const express = require('express');
+const cors = require('cors');
+const clientsRoutes = require('./routes/clients');
+
+// Enable CORS for all origins (or specify your Vercel domain)
+app.use(cors());
+
 app.use(express.json());
-app.use(cors({
-  origin: process.env.ALLOWED_ORIGINS,
-  methods: ['GET', 'POST', 'DELETE'],
-  allowedHeaders: ['Content-Type']
-}));
-app.use(limiter);
+app.use('/clients', clientsRoutes);
+
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 
 // Request logging
 app.use((req, res, next) => {
