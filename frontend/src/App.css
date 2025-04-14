@@ -1,0 +1,510 @@
+/* General app styling */
+.App {
+    margin: 0 auto;
+    padding: 20px;
+    font-family: 'Arial', sans-serif;
+    border-radius: 12px; /* Rounded corners */
+    background-color: #21103A; /* Main background color */
+    color: #ffffff; /* White text for readability on dark background */
+    min-height: 100vh; /* Ensure the background covers the full viewport height */
+  }
+  
+  /* Headings */
+  h1, h2 {
+    color: #ffffff; /* White headings */
+    text-align: center;
+  }
+  
+  /* Links (general) */
+  a {
+    color: #FDB226; /* Match links to button color for consistency */
+    text-decoration: none;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Loading and error messages */
+  .loading, .error {
+    text-align: center;
+    padding: 10px;
+    background-color: #2A1B4A;
+    border-radius: 8px;
+    margin: 10px 0;
+  }
+  
+  .error {
+    color: #FF6B6B; /* Softer red for errors on dark background */
+    background-color: rgba(255, 107, 107, 0.1);
+  }
+  
+  /* Table styling for the client list */
+  .table-container {
+    overflow-x: auto; /* Allow horizontal scrolling on small screens */
+    margin: 20px 0;
+    border-radius: 12px; /* Rounded corners for the table container */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* Subtle shadow for depth */
+    background-color: #2A1B4A; /* Slightly lighter background for the table */
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: separate; /* Allows rounded corners and shadows */
+    border-spacing: 0; /* Remove gaps between cells */
+  }
+  
+  th, td {
+    padding: 8px; /* More padding for better spacing */
+    text-align: left;
+    color: #ffffff; /* White text in table */
+    font-size: 16px; /* Slightly larger text for readability */
+    border-bottom: 1px solid #3A2B5A; /* Subtle border between rows */
+  }
+  
+  /* Header styling */
+  th {
+    background-color: #3A2B5A; /* Slightly lighter header background */
+    font-weight: bold;
+    text-transform: uppercase; /* Uppercase headers for emphasis */
+    letter-spacing: 1px; /* Slight letter spacing for a modern look */
+  }
+  
+  /* Alternating row colors */
+  tbody tr:nth-child(even) {
+    background-color: #32275A; /* Slightly lighter shade for even rows */
+  }
+  
+  /* Hover effect on rows */
+  tbody tr:hover {
+    background-color: #4A3B6A; /* Lighten the row on hover */
+    transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+  }
+  
+  /* Style the "View Details" link as a button */
+  .view-details-btn {
+    display: inline-block;
+    padding: 8px 16px;
+    background-color: #FDB226; /* Match the button color */
+    color: #21103A; /* Dark text for contrast */
+    border-radius: 24px; /* Rounded corners */
+    font-size: 14px;
+    font-weight: bold;
+    transition: all 0.3s ease; /* Smooth transition for hover effect */
+  }
+  
+  .view-details-btn:hover {
+    background-color: #E89E00; /* Darker shade on hover */
+    transform: translateY(-2px); /* Slight lift effect */
+    box-shadow: 0 4px 12px rgba(253, 178, 38, 0.4); /* Glow shadow on hover */
+    text-decoration: none; /* Remove underline on hover */
+  }
+  
+  /* Form styling */
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background-color: #2A1B4A; /* Slightly lighter background for the form */
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Subtle shadow for depth */
+  }
+  
+  form div {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* Labels */
+  label {
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #FDB226; /* Match label color to buttons for consistency */
+  }
+  
+  /* Modern text inputs and select */
+  input[type="text"],
+  input[type="email"],
+
+  /* Initially gray background with white text for gender select */
+select {
+  padding: 10px;
+  border: 1px solid #0ad5e4;
+  border-radius: 8px;
+  background-color: #ffffff; /* Dark by default */
+  color: #000000; /* Gray text for placeholder-like appearance */
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+/* Placeholder option should appear light gray */
+select option[value=""] {
+  color: #A0A0C0;
+}
+
+/* When a real value is selected, switch background to white */
+select:valid {
+  background-color: #ffffff;
+  color: #000000; /* Black text for selected option */
+}
+
+  
+  input[type="text"]::placeholder,
+  input[type="email"]::placeholder {
+    color: #A0A0C0; /* Light gray placeholder text */
+  }
+  
+  input[type="text"]:focus,
+  input[type="email"]:focus,
+  select:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(253, 178, 38, 0.3); /* Glow effect on focus using button color */
+    background-color: #4A3B6A; /* Slightly lighter background on focus */
+  }
+  
+
+/* Style for success message */
+.success-message {
+  color: #4CAF50; /* Green color for success */
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  margin: 10px 0;
+  padding: 10px;
+  background-color: rgba(76, 175, 80, 0.1); /* Light green background with transparency */
+  border: 1px solid #4CAF50;
+  border-radius: 4px;
+}
+
+/* Style for highlighting the new client row */
+.highlight {
+  animation: flash 0.5s ease-in-out 2; /* Flash animation, 0.5s duration, 2 iterations */
+}
+
+/* Keyframes for the flash animation */
+@keyframes flash {
+  0% {
+    background-color: #FDB226; /* Yellow highlight matching the app's accent */
+  }
+  50% {
+    background-color: #3A2A5F; /* Normal hover color */
+  }
+  100% {
+    background-color: transparent; /* Back to the table's default background */
+  }
+}
+
+  /* Button styling */
+  button {
+    padding: 12px 24px;
+    background-color: #FDB226; /* Button color */
+    color: #21103A; /* Dark text for contrast */
+    border: none;
+    border-radius: 24px; /* Rounded corners as specified */
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: all 0.3s ease; /* Smooth transition for hover effect */
+  }
+  
+  /* Hover animation for buttons */
+  button:hover {
+    background-color: #E89E00; /* Darker shade of the button color on hover */
+    transform: translateY(-2px); /* Slight lift effect */
+    box-shadow: 0 4px 12px rgba(253, 178, 38, 0.4); /* Glow shadow on hover */
+  }
+  
+/* Container for the buttons to center them in a row */
+.button-container {
+  display: flex;
+  justify-content: center; /* Center the buttons horizontally */
+  align-items: center; /* Vertically center the buttons */
+  gap: 25px; /* Slightly increased spacing for better separation */
+  width: 100%;
+  margin: 20px 0;
+  flex-wrap: wrap; /* Allow wrapping on smaller screens */
+}
+
+/* Style links to look like buttons (used for Back to List) */
+.button-link {
+  display: block;
+  width: 100%;
+  max-width: 200px;
+  padding: 12px 24px;
+  background-color: #FDB226;
+  color: #21103A;
+  border: none;
+  border-radius: 24px;
+  font-size: 16px;
+  font-weight: bold;
+  text-decoration: none;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.button-link:hover {
+  background-color: #E89E00;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(253, 178, 38, 0.4);
+  text-decoration: none;
+}
+
+/* Container for the Delete button */
+.delete-button-container {
+  display: flex;
+  justify-content: flex-end; /* Align the button to the right */
+  margin-bottom: 20px; /* Space below the button */
+}
+
+/* Style for the Delete button */
+.delete-button {
+  padding: 8px 16px;
+  background-color: #FF6B6B; /* Red background for destructive action */
+  color: #FFFFFF; /* White text for contrast */
+  border: none;
+  border-radius: 24px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.delete-button:hover {
+  background-color: #E55A5A; /* Darker red on hover */
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(255, 107, 107, 0.4);
+}
+
+/* Container for the client details table */
+.client-details-table-container {
+  max-width: 600px; /* Limit the table width for better readability */
+  margin: 0 auto; /* Center the table */
+  background-color: #2A1B4A; /* Slightly lighter background */
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  overflow: hidden; /* Ensure rounded corners are applied */
+}
+
+/* Style for the client details table */
+.client-details-table {
+  width: 100%;
+  border-collapse: collapse; /* Merge borders for a cleaner look */
+}
+
+/* Style for table rows and cells */
+.client-details-table tr {
+  border-bottom: 1px solid #3A2B5A; /* Subtle border between rows */
+}
+
+.client-details-table td {
+  padding: 12px 16px;
+  color: #FFFFFF; /* White text */
+  font-size: 16px;
+}
+
+/* Style for the label column (first column) */
+.client-details-table td:first-child {
+  width: 30%; /* Fixed width for labels */
+  font-weight: bold;
+  color: #FDB226; /* Match label color to the app's accent */
+}
+
+/* Style for the value column (second column) */
+.client-details-table td:last-child {
+  width: 70%; /* Remaining width for values */
+}
+
+/* Remove border from the last row */
+.client-details-table tr:last-child {
+  border-bottom: none;
+}
+
+/* Style for client images in the table */
+.client-details-table .client-image {
+  width: 50px;
+  height: 50px;
+  border-radius: 8px; /* Rounded corners for the image */
+  object-fit: cover;
+  vertical-align: middle;
+}
+
+/* Style for image error message */
+.client-details-table .image-error {
+  color: #FF6B6B;
+  font-size: 14px;
+}
+
+/* Style the Previous and Next buttons (smaller) */
+.nav-button {
+  display: block;
+  width: 100%;
+  max-width: 100px; /* Reduced to make the size difference more noticeable */
+  padding: 6px 12px; /* Slightly smaller padding */
+  background-color: #FDB226;
+  color: #21103A;
+  border: none;
+  border-radius: 24px;
+  font-size: 14px; /* Smaller font size */
+  font-weight: bold;
+  text-decoration: none;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.nav-button:hover {
+  background-color: #E89E00;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(253, 178, 38, 0.4);
+  text-decoration: none;
+}
+
+/* Disabled state for buttons */
+.nav-button.disabled {
+  background-color: #A0A0C0;
+  color: #21103A;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+  
+  /* Image styling for client details */
+  img {
+    width: 50px;
+    height: 50px;
+    margin-left: 10px;
+    border-radius: 50%; /* Circular images for a modern look */
+  }
+  
+  /* Client details styling */
+  div > p {
+    background-color: #2A1B4A;
+    padding: 10px;
+    border-radius: 8px;
+    margin: 10px 0;
+  }
+  
+  /* Error message styling */
+  p[style*="color: red"] {
+    color: #FF6B6B !important; /* Softer red for errors on dark background */
+    background-color: rgba(255, 107, 107, 0.1);
+    padding: 8px;
+    border-radius: 8px;
+  }
+
+  /* Modal overlay (background) */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(33, 16, 58, 0.8); /* Semi-transparent dark background (#21103A with opacity) */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* Ensure the modal is above other content */
+}
+
+/* Modal content */
+.modal-content {
+  background-color: #2A1B4A; /* Slightly lighter background for the modal */
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  max-width: 400px;
+  width: 90%; /* Responsive width */
+  text-align: center;
+  color: #FFFFFF; /* White text */
+}
+
+/* Modal heading */
+.modal-content h3 {
+  margin: 0 0 10px 0;
+  font-size: 20px;
+  color: #FDB226; /* Match the app's accent color */
+}
+
+/* Modal message */
+.modal-content p {
+  margin: 0 0 20px 0;
+  font-size: 16px;
+}
+
+/* Container for modal buttons */
+.modal-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 15px; /* Space between buttons */
+}
+
+/* Style for the Cancel button in the modal */
+.modal-cancel-button {
+  padding: 8px 16px;
+  background-color: #FDB226; /* Match the app's button color */
+  color: #21103A;
+  border: none;
+  border-radius: 24px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+/* Hover effect for Cancel button */
+.modal-cancel-button:hover {
+  background-color: #E89E00;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(253, 178, 38, 0.4);
+}
+
+/* Style for the Delete button in the modal */
+.modal-delete-button {
+  padding: 8px 16px;
+  background-color: #FF6B6B; /* Red background for destructive action */
+  color: #FFFFFF;
+  border: none;
+  border-radius: 24px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+/* Hover effect for Delete button */
+.modal-delete-button:hover {
+  background-color: #E55A5A;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(255, 107, 107, 0.4);
+}
+
+/* Container for action buttons (Create and Delete) */
+.action-button-container {
+  display: flex;
+  justify-content: space-between; /* Space buttons on opposite sides */
+  align-items: center;
+  margin-bottom: 20px; /* Space below the buttons */
+}
+
+/* Style for the Create Client button */
+.create-button {
+  display: inline-block;
+  padding: 8px 16px;
+  background-color: #FDB226; /* Match the app's button color */
+  color: #21103A; /* Dark text for contrast */
+  border: none;
+  border-radius: 24px;
+  font-size: 14px;
+  font-weight: bold;
+  text-decoration: none;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+/* Hover effect for Create Client button */
+.create-button:hover {
+  background-color: #E89E00; /* Darker shade on hover */
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(253, 178, 38, 0.4);
+  text-decoration: none;
+}
