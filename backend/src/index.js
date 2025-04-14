@@ -22,13 +22,15 @@ const logger = winston.createLogger({
 });
 
 // Middleware
-app.use(express.json());
+const clientsRoutes = require('./routes/clients');
+
+// Configure CORS to allow requests from the Vercel frontend
 app.use(cors({
-  origin: process.env.ALLOWED_ORIGINS,
-  methods: ['GET', 'POST', 'DELETE'],
-  allowedHeaders: ['Content-Type']
+  origin: ['http://localhost:3001', 'https://client-management-app-ncsz.vercel.app']
 }));
-app.use(limiter);
+
+app.use(express.json());
+app.use('/clients', clientsRoutes);
 
 // Request logging
 app.use((req, res, next) => {
@@ -51,5 +53,5 @@ app.use((err, req, res, next) => {
 // Start the server
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
-  logger.info(`Server is running on http://localhost:${PORT}`);
+  logger.info(`Server is running on ${PORT}`);
 });
