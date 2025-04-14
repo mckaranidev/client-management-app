@@ -22,7 +22,6 @@ const logger = winston.createLogger({
 });
 
 // Middleware
-const express = require('express');
 const cors = require('cors');
 const clientsRoutes = require('./routes/clients');
 
