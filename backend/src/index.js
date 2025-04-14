@@ -31,7 +31,6 @@ app.use(cors({
 
 app.use(express.json());
 app.use('/clients', clientsRoutes);
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 
 // Request logging
 app.use((req, res, next) => {
@@ -54,5 +53,5 @@ app.use((err, req, res, next) => {
 // Start the server
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
-  logger.info(`Server is running on http://localhost:${PORT}`);
+  logger.info(`Server is running on ${PORT}`);
 });
