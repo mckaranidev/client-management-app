@@ -22,7 +22,6 @@ const logger = winston.createLogger({
 });
 
 // Middleware
-const cors = require('cors');
 const clientsRoutes = require('./routes/clients');
 
 // Configure CORS to allow requests from the Vercel frontend
