@@ -26,12 +26,13 @@ const express = require('express');
 const cors = require('cors');
 const clientsRoutes = require('./routes/clients');
 
-// Enable CORS for all origins (or specify your Vercel domain)
-app.use(cors());
+// Configure CORS to allow requests from the Vercel frontend
+app.use(cors({
+  origin: ['http://localhost:3001', 'https://client-management-app-ncsz.vercel.app']
+}));
 
 app.use(express.json());
 app.use('/clients', clientsRoutes);
-
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 
 // Request logging
