@@ -884,3 +884,4 @@
 {"level":"info","message":"Server is running on http://localhost:3000","timestamp":"2025-04-14T08:39:23.202Z"}
 {"body":{},"ip":"::1","level":"info","message":"GET /clients","timestamp":"2025-04-14T08:39:29.470Z"}
 {"body":{},"ip":"::1","level":"info","message":"GET /clients","timestamp":"2025-04-14T08:39:29.487Z"}
+{"level":"info","message":"Server is running on 3000","timestamp":"2025-04-14T17:54:36.976Z"}
